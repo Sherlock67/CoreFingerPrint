@@ -23,13 +23,13 @@
                 <td class="style3" align="left">
                     <span class="download_href"> 
                     <center>
-                                @using (Html.BeginForm("GetFingerPrint","FingerPrint" ,FormMethod.Get))
-                                {
-                                       <input type="number" />
-                                      <button type="submit"   class=" btn btn-success"> Get Fingerprint</button>
-                                    
-                                }
-                
+                        <form method="get" asp-controller="FingerPrint" asp-action="GetFingerPrint">
+                                <input asp-for="FingerPrintId" class="form-control" />
+                             
+                                 <button class="btn btn-success">Get Fingerprint</button>
+                        </form>
+                               
+                             
                 </div>
 		                <img  id="FPImage2" alt="Fingerpint Image" height=300 width=210 src=".\Images\PlaceFinger2.bmp" > <br>
                         
@@ -52,14 +52,9 @@
 <script type="text/javascript" lang="javascript">
 
    
-
- 
-  
   
     var template_1 = "" ;
     var template_2 = "";
-
-
 
 
     //function SuccessFunc1(result) {
@@ -81,19 +76,9 @@
     //}
    
     function SuccessFunc1(result) {
-        
-       
-       
-        
         console.log("result", result);
-         template_1 = result;
-         console.log("template_1", template_1);
-    
-    
-        
-        
-    
-   
+        template_1 = result;
+        console.log("template_1", template_1);
     }
   //  SuccessFunc1(resultTemp);
     
@@ -146,7 +131,7 @@
     }
    
     
-         @Model.JSMethodName ('@Model.JSParameter')
+    @Model.JSMethodName ('@Model.JSParameter')
     function matchScore(succFunction, failFunction) {
     
          template_2 = "Rk1SACAyMAAAAAF6AAABLAGQAMUAxQEAAABHOkDBAA4KAEC3ABqKAEDhACH7AICqAC0JAIDCAC7/AEB+ADQVAECpAD6NAEBTAE2gAEBIAFIfAECHAFMUAEDfAFd4AEDFAFmAAEBdAFmoAIBlAFwkAIAoAHCoAEBJAHcoAEBoAIwkAEAiAJMlAEC6AJWKAIBXAJesAEC6AKMDAEBBAKusAEDRALTsAIBfALirAEBFALspAEA2AMAsAEDLAMd4AEBmAMomAEDSAMzjAIB0AM8lAEDUANVsAECGANyhAEBiAOosAEDBAO7gAEAtAO8oAEA5APCzAEC4APHdAIDYAPjRAIA0AP8mAEDKAQDAAEBoAQIoAEDJARM9AEAvASuUAEAfASwUAEBOAS4kAEBUAS+dAEDCATYlAEA9AUAYAIAdAUAJAEBVAUEeAICcAUUXAIBVAVURAEChAVkNAEBOAWAKAEBoAWARAECjAWKDAEA+AWr+AEBQAXuGAAAA"
@@ -174,7 +159,7 @@
         }
         var params ="template1=" + encodeURIComponent(template_1);
         params += "&template2=" + encodeURIComponent(template_2);
-    //    params += "&licstr=" + encodeURIComponent(secugen_lic);
+        params += "&licstr=" + encodeURIComponent(secugen_lic);
         params += "&templateFormat=" + "ISO";
         xmlhttp.open("POST", uri, false);
         xmlhttp.send(params);

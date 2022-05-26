@@ -3,6 +3,7 @@ using FingerPrintSolution.Models;
 using Grpc.Core;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 using System.Web;
 
 
@@ -41,30 +42,27 @@ namespace FingerPrintSolution.Controllers
             return View();
 
         }
-  
-       
-        //[HttpPost]
-        //public IActionResult GetByID(int id)
-        //{
-
-
-        //    return View(jScaller);
-        //}
-        
         [HttpGet]
         public IActionResult GetFingerPrint(int id)
         {
-
             var result = _db.Fingerprints.Where(a => a.FingerPrintId == id).FirstOrDefault();
             string templatebase64 = result.TemplateBase64;
             FingerPrint jScaller = new FingerPrint();
             jScaller.JSMethodName = "SuccessFunc1";
             jScaller.JSParameter = templatebase64;
+            return View(jScaller);
+            //return View(fingerPrint);
+        }
+        [HttpPost]
+        public IActionResult GetFingerPrint([Bind("FingerPrintId,TemplateBase64")] FingerPrint fingerPrint)
+        {
+         
+           return View(fingerPrint);
             //result.JavaScriptToRun = "ShowPopUp('ghfiagfia')";
             //result.JavaScriptToRun = "SuccessFunc1(/" + result.TemplateBase64 + "/)";
-            return View(jScaller);
+           
         }
-
+       
     }
 }
 

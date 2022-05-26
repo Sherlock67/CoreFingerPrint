@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\CMED\source\repos\FingerPrintSolution\FingerPrintSolution
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/CMED/source/repos/FingerPrintSolution/FingerPrintSolution/Views/FingerPrint/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluZ2VyUHJpbnRcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/CMED/source/repos/FingerPrintSolution/FingerPrintSolution/Views/FingerPrint/GetFingerPrint.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluZ2VyUHJpbnRcR2V0RmluZ2VyUHJpbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
